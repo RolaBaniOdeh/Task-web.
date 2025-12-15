@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Store</title>
+
+    <style>
+
+    body::-webkit-scrollbar {
+        width: 10px; height: 10px;
+    }
+    
+    body::-webkit-scrollbar-thumb { 
+        background: #0bb7c7; border-radius: 5px; 
+    }
+ 
+    body {
+        height: 100%;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #ffffff;
+        background-image: url('image/bg.png'); 
+        background-position: top; 
+        background-repeat: no-repeat;
+    }
+
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 0px;
+        background-color: #ffffff;
+        border-bottom: 2px solid #e3e3e3 ;
+        box-shadow: 0 4px 8px rgba(0, 203, 255, 0.5);  
+    }
+
+    header .left img {
+        width: 60px;
+        margin-left: 170px;
+    }
+
+    header nav {
+        text-align: center;
+        display: flex;
+        margin-left: 350px;
+    }
+
+    nav a {
+        text-decoration: none;
+        margin: 0 10px;
+        color: #333;
+        font-weight: bold;
+    }
+
+    .right-icons {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        margin-right: 200px;
+            
+    }
+        
+    .right-icons a:first-child img {
+        margin-left: 350px;
+    }
+        
+    .right-icons a:last-child img {
+        margin-right: 180px;   
+    }
+        
+    .right-icons img.icon {
+        width: 20px; 
+        height: 20px;     
+    }
+        
+    .Quick{
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+    }
+
+    .Quick p {
+        margin: 0px;
+    }
+
+    .contact-container {
+        display: flex;
+        flex-direction: column; 
+        row-gap: 10px; 
+    } 
+        
+    .contact-line {
+        display: flex;
+        align-items: center;
+        column-gap: 8px;
+    }
+
+    .contact-line p {
+        margin: 0;
+    }
+
+    .contact-line img {
+        width: 17px; 
+        height: 17px;
+    }
+
+    .right-icons .icon {
+        width: 17px;
+        height: 17px;
+    }
+
+    .hero {
+        display: flex;
+        align-items: center;
+    }
+
+    .hero-text h1.welcome {
+        font-size: 40px;
+        font-weight: bold;
+        color: #000;
+        margin: 0;
+        margin-top: 80px;
+        margin-left: 115px;
+    }
+
+    .hero-text h1.blue {
+        font-size: 40px;
+        margin: 0;
+        color:rgb(96, 152, 198);
+        margin-left: 115px;
+    }
+
+    .hero-text h2 {
+        font-size: 26px;
+        color: #0bb7c7;
+        margin-top: -10px;
+    }
+
+    .hero-img {
+        width: 700px;
+        height: auto;
+        margin-top: 70px;
+        margin-left: 300px;
+
+    }
+
+    .hero-text p {
+        width: 35pc;
+        font-size: 14px;
+        color: #353434;
+        margin-left: 115px;
+    }
+
+    .btn {
+        padding: 8px 15px;
+        background: #0bb7c7;
+        color: #fff;
+        border-radius: 3px;
+        border: none;
+        cursor: pointer;
+        margin-top: 10px;
+        margin-left: 115px;
+    }
+
+    .hero-img img {
+        width: 550px;
+    }
+
+    .features {
+        margin: 50px auto;
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .feature-box {
+        flex: 0 0 250px;
+        width: 22%;
+        text-align: center;
+        border: 1px solid #d7eef0;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px #0bb7c7;
+    }
+
+    .feature-box img {
+        width: 45px;
+        margin-bottom: 10px;
+        filter: invert(34%) sepia(86%) saturate(2000%) 
+        hue-rotate(185deg) brightness(95%) contrast(90%);
+    }
+
+    .feature-box h3 {
+        font-size: 14px;
+        margin-bottom: 5px;
+        margin-top: 0;
+    }
+
+    .feature-box p {
+        font-size: 12px;
+        color: #555;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .about {
+        width: 90%;
+        margin: 70px auto;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+
+    .about img {
+        width: 620px;
+        height: auto;
+        margin-right: 150px;
+        margin-top: -140px;
+    }
+
+    .about-text {
+        width: 50%;
+        font-weight: 545;
+        margin-top: -50px;
+        margin-right: -40px;
+
+    }
+
+    .about-text h2 {
+        font-size: 22px;
+        margin-bottom: 10px;
+    }
+
+    .about-text p {
+        font-size: 14px;
+        width: 35pc;
+        color: #454343;
+        margin-bottom: 20px;
+    }
+
+    .about-text .btn{
+        margin-left: -2px;
+    }
+
+    .section-title {
+        text-align: center;
+        font-size: 40px;
+        margin: 50px 0;
+        font-weight: bold;
+    }
+
+    .reviews {
+        width: 90%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+    }
+
+    .review {
+        border: 1px solid #7edbe4;
+        padding: 20px;
+        border-radius: 2px;
+        box-shadow: 0 2px 6px rgba(0, 203, 255, 0.5);  
+
+    }
+    .review-header{
+        display: flex;
+        align-items: center;
+        gap: 10px; 
+    }
+
+    .review .rev-img {
+        width: 75px;
+        height: 75px;
+        border-radius: 50%;
+    }
+
+    .quote-icon {
+        display: flex;
+        margin-top: -20px;
+        right: 10px;
+        width: 100px; 
+        filter: brightness(0) invert(0.9);
+        margin-left: 150px;
+    }
+
+    .review h4 {
+        margin: 10px 0 5px;
+        font-size: 20px;
+    }
+
+    .review p {
+        font-size: 14px;
+        color: #464646;
+    }
+
+    .stars {
+        color: #0bb7c7;
+        font-size: 25px;
+        margin: 8px 0 3px;    
+    }
+
+
+    .digital-banner {
+        margin: 40px 0;
+        position: relative;
+        width: 100%;
+    }
+
+    .digital-banner img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 8px;
+    }
+        
+    .digital-banner .btn2 {
+        position: absolute;
+        bottom: 112px;    
+        margin-left: 119px;
+        padding: 10px 18px;
+        background-color: #328fa9; 
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 500;
+        transition: background 0.3s;
+    }
+        
+    .digital-banner .btn:hover {
+        background-color: #00b8e0; 
+    }
+
+    .blog {
+        background-color: #fff;
+        border: 2px solid #f4f1f1;
+        box-shadow: 0 4px 6px rgba(178,174,174,0.5);
+        border-radius: 10px;
+        overflow: hidden; 
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .blog-grid {
+        width: 90%;
+        margin: 50px auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+        color: #0787a4;
+    }
+
+    .blog:hover{
+        transform: translateY(-5px);
+    }
+
+    .blog img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        display: block;
+        border-radius: 0;
+    }
+
+    .blog h4 {
+        margin: 15px 0 5px;
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .blog p {
+        font-size: 18px;
+        color: #373636;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+
+    .blog-icons{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+    
+    .blog-icons img{
+        width: 20px;
+        height: 20px;
+        filter: invert(35%) sepia(89%) saturate(2692%) 
+        hue-rotate(190deg) brightness(95%) contrast(90%);
+    }
+
+    .featured-section {
+       text-align: center;
+       margin-top: 50px;
+    }
+    
+    .featured-section h1 {
+        font-size: 40px;
+        margin-bottom: 40px;
+    }
+    
+    .books-container {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        flex-wrap: wrap;
+    }
+    
+    .book-card {
+        width: 200px;
+        border: 1px solid #9da0a0; 
+        padding: 15px;
+        text-align: center;
+        height: 425px; 
+    }
+    
+    .book-card img {
+        width: 90%;
+        height: auto;
+        object-fit: cover;
+        margin-top: -10px;
+    }
+    
+    .book-card h3 {
+        margin-top: 15px;
+        font-size: 22px;
+        font-weight: bold;
+    }
+    
+    .author {
+        margin: 5px 0;
+        color: rgb(96, 91, 91);
+        margin-top: -8px;
+    }
+    
+    .genre {
+        color: #0093ad;
+        font-size: 14px;
+        margin-bottom: 10px;
+        margin-top: -1px;
+    }
+    
+    .price {
+        font-weight: bold;
+        margin-bottom: 10px;
+        margin-top: -3px;
+    }
+    
+    .price span {
+        text-decoration: line-through;
+        color: rgb(102, 101, 101);
+        font-size: 12px;
+        
+    }
+    
+    .book-card button {
+        padding: 8px 20px;
+        border: 2px solid #3b9bae;
+        background: white;
+        cursor: pointer;
+    }
+
+    .arrivals-section {
+        width: 100%;
+        text-align: center;
+        margin: 60px auto;
+
+    }
+    
+    .arrivals-section .section-title {
+         font-size: 40px;
+         font-weight: 700;
+         margin-bottom: 40px;
+        
+    }
+    
+    .arrivals-section .arrivals-container {
+        width: 90%;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 40px;
+    }
+
+    .arrivals-section .book-card {
+         width: 190px;
+         height: 320px;
+         padding: 20px;
+         border: 1px solid #9da0a0; 
+         text-align: center;
+         background: #fff;
+    }
+    
+    .arrivals-section .book-card img {
+        width: 150px;
+        height: auto;
+        margin-bottom: 10px;
+        margin-top: -15px;
+    }
+    
+    .arrivals-section .book-card h3 {
+        margin: 5px 0;
+        font-size: 18px;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        font-weight: 300;
+        margin-top: 2px;
+    }
+
+    .arrivals-section .stars {
+        color: #0bb7c7;
+        font-size: 25px;
+        margin: 8px 0 3px;    
+    }
+
+    .arrivals-section .btn5 {
+        padding: 8px 20px;
+        border: 2px solid #3b9bae;
+        background: white;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .arrivals-section .btn:hover {
+        background: #0bb7c7;
+        color: white;
+    }
+
+    footer {
+        background: #e8eaed;
+        color: #111010;
+        padding: 35px 50px;
+        display: grid;
+        grid-template-columns: 30% 15% 20% 15% 20%;
+        gap: 15px;
+    }
+
+    footer > div {
+    margin: 0 10px; 
+}
+
+
+    .footer-section h2 {
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+    
+    .Text p {
+        width: 280px;
+        line-height:2;
+        color: rgb(36, 34, 34);
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+    
+    .Quick p {
+        margin: 1px 0;
+        cursor: pointer;
+    }
+    
+    .contact-line {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2px;
+    }
+    
+    .contact-line img {
+        width: 22px;
+        margin-right: 2px;
+    }
+    
+    .right-icons2 {
+        display: flex;
+        gap: 10px;
+    }
+    
+    .icon {
+        width: 17px;
+        cursor: pointer;
+    }
+
+    .Newsletter input {
+        width: 80%;
+        padding: 6px;
+        margin-bottom: 5px;
+        border-radius: 15px;
+        font-size: 15px;
+        border: 2px solid #b7bdc4; 
+        background-color: #b7bdc4;
+        color: #333;
+    }
+    
+    .Newsletter button {
+        padding: 10px 20px;
+        background: #4298c3;
+        border: none;
+        cursor: pointer;
+        border-radius: 20px;
+        color: white;
+        font-size: bold;
+    }
+    
+    .footer-bottom2 {
+        width: 100%;
+        padding: 10px 0px 20px 0px;
+        text-align: center; 
+        padding: 10px 0;
+        color: #418dcb;
+        font-family: 'Arial', sans-serif; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px; 
+        margin-left: 600px;
+        margin-top: -20px;
+    }
+
+    .footer-bottom2 .smile-icon {
+        width: 20px; 
+        height: 20px;
+        filter: invert(35%) sepia(89%) saturate(2692%) 
+        hue-rotate(190deg) brightness(95%) contrast(90%);
+    }
+
+    </style>
+
+</head>
+<body>
+
+   <header>
+    <div class="left">
+        <img src="image/logo.png" alt="logo">
+    </div>
+
+    <nav>
+        <a href="">Home</a>
+        <a href="">About</a>
+        <a href="">Featured</a>
+        <a href="">Arrivals</a>
+        <a href="">Reviews</a>
+        <a href="">Blog</a>
+    </nav>
+
+    <div class="right-icons">
+        <a href=""><img src="image/search.png" alt="search" class="icon"></a>
+        <a href=""><img src="image/heart.png" alt="heart" class="icon"></a>
+    </div>
+
+</header>
+    
+    <section class="hero">
+        <div class="hero-text">
+            <h1 class="welcome">WELCOME TO</h1>
+            <h1 class="blue">BOOK STORE</h1>
+
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Assumenda molestias atque laborum non fuga ex deserunt. 
+            Exercitationem velit ducimus praesentium, obcecati hic voluptate id tenetur fuga illum quidem omnis? Rerum?
+        </p>
+
+        <button class="btn">Learn More</button>
+    </div>
+
+    <div class="hero-img">
+        <img src="image/table.png" alt="Table">
+    </div>
+    </section>
+
+    <br><br><br><br><br><br><br>
+
+  <section class="features">
+    <div class="feature-box">
+        <img src="image/Fast Delivery.svg" alt="Fast Delivery icon">
+        <h3>Fast Delivery</h3>
+        <p class="bold-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+    </div>
+
+    <div class="feature-box">
+        <img src="image/Services.svg" alt="Services icon">
+        <h3>24 x 7 Services</h3>
+        <p class="bold-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+    </div>
+
+    <div class="feature-box">
+        <img src="image/Best Deal.svg" alt="Best Deal icon">
+        <h3>Best Deal</h3>
+        <p class="bold-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+    </div>
+
+    <div class="feature-box">
+        <img src="image/Secure Payment.svg" alt="Secure Payment icon">
+        <h3>Secure Payment</h3>
+        <p class="bold-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+    </div>
+   </section>
+
+   <br><br><br><br><br><br>
+
+    <section class="about">
+    <img src="image/about.png" alt="About Image">
+
+    <div class="about-text">
+        <h1>About Us</h1>
+        <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit Beatae cumque atque dolor corporis architecto. 
+            Voluptate expedita molestias maxime officia natus consectetur dolor quisquam illo? 
+            Quis illum nostrum perspiciatis laboriosam perferendis? Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Minus ad eius sape architecto aperiam laboriosam voluptas nobis voluptates id amet eos repellat corrupti harum consectetur, 
+            dolorum dolore blanditis quam quo
+        </p>
+        <button class="btn">Learn More</button>
+    </div>
+</section>
+
+<br><br>
+    <section class="featured-section">
+
+    <h1>Featured Books</h1>
+    <div class="books-container">
+        <div class="book-card">
+            <img src="image/book_1.jpg" alt="">
+            <h3>Featured Books</h3>
+            <p class="author">John Deo</p>
+            <p class="genre">Thriller, Horror, Romance</p>
+            <p class="price">$25.50 <span>$28.60</span></p>
+            <button>Learn More</button>
+        </div>
+
+        <div class="book-card">
+            <img src="image/book_2.jpg" alt="">
+            <h3>Featured Books</h3>
+            <p class="author">John Deo</p>
+            <p class="genre">Thriller, Horror, Romance</p>
+            <p class="price">$25.50 <span>$28.60</span></p>
+            <button>Learn More</button>
+        </div>
+
+        <div class="book-card">
+            <img src="image/book_3.jpg" alt="">
+            <h3>Featured Books</h3>
+            <p class="author">John Deo</p>
+            <p class="genre">Thriller, Horror, Romance</p>
+            <p class="price">$25.50 <span>$28.60</span></p>
+            <button>Learn More</button>
+        </div>
+
+        <div class="book-card">
+            <img src="image/book_4.jpg" alt="">
+            <h3>Featured Books</h3>
+            <p class="author">John Deo</p>
+            <p class="genre">Thriller, Horror, Romance</p>
+            <p class="price">$25.50 <span>$28.60</span></p>
+            <button>Learn More</button>
+        </div>
+
+        <div class="book-card">
+            <img src="image/book_5.jpg" alt="">
+            <h3>Featured Books</h3>
+            <p class="author">John Deo</p>
+            <p class="genre">Thriller, Horror, Romance</p>
+            <p class="price">$25.50 <span>$28.60</span></p>
+            <button>Learn More</button>
+        </div>
+
+        <div class="book-card">
+            <img src="image/book_6.jpg" alt="">
+            <h3>Featured Books</h3>
+            <p class="author">John Deo</p>
+            <p class="genre">Thriller, Horror, Romance</p>
+            <p class="price">$25.50 <span>$28.60</span></p>
+            <button>Learn More</button>
+        </div>
+
+    </div>
+</section>
+
+<br><br>
+
+<section class="arrivals-section">
+    <h1 class="section-title">New Arrivals</h1>
+
+    <div class="arrivals-container">
+
+        <div class="book-card">
+            <img src="image/arrival_1.jpg" alt="">
+            <h3>New Arrivals</h3>
+            <div class="stars">★★★★⯨</div>
+            <button class="btn5">Learn More</button>
+        </div>
+
+        <div class="book-card">
+            <img src="image/arrival_2.jpg" alt="">
+            <h3>New Arrivals</h3>
+            <div class="stars">★★★★⯨</div>
+            <button class="btn5">Learn More</button>
+        </div>
+
+        <div class="book-card">
+            <img src="image/arrival_3.jpg" alt="">
+            <h3>New Arrivals</h3>
+            <div class="stars">★★★★⯨</div>
+            <button class="btn5">Learn More</button>
+        </div>
+
+        <div class="book-card">
+            <img src="image/arrival_4.jpg" alt="">
+            <h3>New Arrivals</h3>
+            <div class="stars">★★★★⯨</div>
+            <button class="btn5">Learn More</button>
+        </div>
+
+        <div class="book-card">
+            <img src="image/arrival_5.jpg" alt="">
+            <h3>New Arrivals</h3>
+            <div class="stars">★★★★⯨</div>
+            <button class="btn5">Learn More</button>
+        </div>
+
+        <div class="book-card">
+            <img src="image/arrival_6.jpg" alt="">
+            <h3>New Arrivals</h3>
+            <div class="stars">★★★★⯨</div>
+            <button class="btn5">Learn More</button>
+        </div>
+
+        <div class="book-card">
+            <img src="image/arrival_7.jpg" alt="">
+            <h3>New Arrivals</h3>
+            <div class="stars">★★★★⯨</div>
+            <button class="btn5">Learn More</button>
+        </div>
+
+        <div class="book-card">
+            <img src="image/arrival_8.webp" alt="">
+            <h3>New Arrivals</h3>
+            <div class="stars">★★★★⯨</div>
+            <button class="btn5">Learn More</button>
+        </div>
+
+        <div class="book-card">
+            <img src="image/arrival_9.jpg" alt="">
+            <h3>New Arrivals</h3>
+            <div class="stars">★★★★⯨</div>
+            <button class="btn5">Learn More</button>
+        </div>
+
+        <div class="book-card">
+            <img src="image/arrival_10.jpg" alt="">
+            <h3>New Arrivals</h3>
+            <div class="stars">★★★★⯨</div>
+            <button class="btn5">Learn More</button>
+        </div>
+    </div>
+</section>
+
+<br><br><br>
+
+    
+<h1 class="section-title">Reviews</h1>
+
+<div class="reviews">
+
+    <div class="review">
+        <div class="review-header">
+            <img src="image/review_1.png" class="rev-img">
+            <img src="image/Double Quote.svg" alt="" class="quote-icon">
+        </div>
+
+        <h4>John Deo</h4>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Natus eos doloribus iure distinctio! Eos dolorem quam,
+            nisi amet saepe totam, quas quidem laboriosam dolore,
+            tenetur itaque nostrum voluptas excepturi aut.
+        </p>
+        <div class="stars">★★★★⯨</div>
+    </div>
+
+    <div class="review">
+        <div class="review-header">
+            <img src="image/review_2.png" class="rev-img">
+            <img src="image/Double Quote.svg" alt="" class="quote-icon">
+        </div>
+
+        <h4>John Deo</h4>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Natus eos doloribus iure distinctio! Eos dolorem quam,
+            nisi amet saepe totam, quas quidem laboriosam dolore,
+            tenetur itaque nostrum voluptas excepturi aut.
+        </p>
+        <div class="stars">★★★★⯨</div>
+    </div>
+
+    <div class="review">
+        <div class="review-header">
+            <img src="image/review_3.png" class="rev-img">
+            <img src="image/Double Quote.svg" alt="" class="quote-icon">
+        </div>
+
+        <h4>John Deo</h4>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Natus eos doloribus iure distinctio! Eos dolorem quam,
+            nisi amet saepe totam, quas quidem laboriosam dolore,
+            tenetur itaque nostrum voluptas excepturi aut.
+        </p>
+        <div class="stars">★★★★⯨</div>
+    </div>
+
+    <div class="review">
+        <div class="review-header">
+            <img src="image/review_4.png" class="rev-img">
+            <img src="image/Double Quote.svg" alt="" class="quote-icon">
+        </div>
+
+        <h4>John Deo</h4>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Natus eos doloribus iure distinctio! Eos dolorem quam,
+            nisi amet saepe totam, quas quidem laboriosam dolore,
+            tenetur itaque nostrum voluptas excepturi aut.
+        </p>
+        <div class="stars">★★★★⯨</div>
+    </div>
+
+</div>
+<br><br>
+
+<div class="digital-banner">
+    <img src="image/banner.jpg" alt="Banner">
+    <button class="btn2">Learn More</button>
+</div>
+
+
+<h1 class="section-title">Our Blog</h1>
+
+<div class="blog-grid">
+    <div class="blog">
+        <img src="image/blog_1.jpg" alt="Blog 1">
+        <h4>Blogger</h4>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Ipsam, quos quis quasi ut impedit reiciendis voluptatem rem esse ratione omnis,
+            laudantium earum. Aperiam nesciunt dolore aliquam repellat consequatur amet ducimus.
+        </p>
+        <div class="blog-icons">
+            <img src="image/Calendar.svg" alt="Heart" class="left-icon">
+            <img src="image/Heart.svg" alt="Calendar" class="right-icon">
+        </div>
+    </div>
+
+    <div class="blog">
+        <img src="image/blog_2.jpg" alt="Blog 2">
+        <h4>Blogger</h4>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Ipsam, quos quis quasi ut impedit reiciendis voluptatem rem esse ratione omnis,
+            laudantium earum. Aperiam nesciunt dolore aliquam repellat consequatur amet ducimus.
+        </p>
+        <div class="blog-icons">
+            <img src="image/Calendar.svg" alt="Heart" class="left-icon">
+            <img src="image/Heart.svg" alt="Calendar" class="right-icon">
+        </div>
+    </div>
+
+    <div class="blog">
+        <img src="image/blog_3.jpg" alt="Blog 3">
+        <h4>Blogger</h4>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Ipsam, quos quis quasi ut impedit reiciendis voluptatem rem esse ratione omnis,
+            laudantium earum. Aperiam nesciunt dolore aliquam repellat consequatur amet ducimus.
+        </p>
+        <div class="blog-icons">
+            <img src="image/Calendar.svg" alt="Heart" class="left-icon">
+            <img src="image/Heart.svg" alt="Calendar" class="right-icon">
+        </div>
+    </div>
+</div>
+
+
+    <footer>
+        <div>
+            <img src="image/logo.png" width="110">
+            ,<div class="Text">
+            <p style="font-size: medium;">
+                Lorem, ipsum dolor sit amet 
+                consectetur adipisicing elit Est quaerat ipsa aspernatur ad sequil. 
+                Dolore eveniet vitae quasi.Excepturi ipsa odio impedit sequi 
+                at hic velit, minus vero sint Voluptas?
+             </p>
+            </div>
+
+        </div>
+
+        <div>
+            <div class="Quick">
+            <h2>Quick Link</h2>
+            <p>Home</p>
+            <p>About</p>
+            <p>Featured</p>
+            <p>Arrivals</p>
+            <p>Reviews</p>
+            <p>Blog</p>
+            </div>
+        </div>
+
+        <div>
+            <h2>Contact Info</h2>
+            <div class="contact-container">
+            <div class="contact-line">
+                <img src="image/Call.svg">
+                <p>+94 12 345 6789</p>
+            </div>
+
+            <div class="contact-line">
+                <img src="image/Call.svg">
+                <p>+94 32 444 699</p>
+            </div>
+
+            <div class="contact-line">
+                <img src="image/Email.svg">
+                <p>bookstore123@gmail.com</p>
+            </div>
+        </div>
+        </div>
+        
+
+      <div>
+    <h2>Follow Us</h2>
+    <div class="right-icons2">
+        <a href=""><img src="image/Facebook.svg" alt="Facebook" class="icon"></a>
+        <a href=""><img src="image/Instagram.svg" alt="Instagram" class="icon"></a>
+        <a href=""><img src="image/Twitter.svg" alt="Twitter" class="icon"></a>
+        <a href=""><img src="image/Linkedin.svg" alt="Linkedin" class="icon"></a>
+    </div>
+    </div>
+
+        <div class="Newsletter">
+            <h2>Newsletter</h2>
+
+            <input type="email" placeholder="You email id here">
+            <button>Subscribe</button>
+
+        </div>
+        
+       <div class="footer-bottom2">
+         <span style="color: black;">Design By</span>
+         <img src="image/Smile.svg" alt="smile" class="smile-icon">
+         <span style="color: rgb(43, 109, 160);">WT Master Code</span>
+        </div>
+
+    </footer>
+
+</body>
+</html>
+
